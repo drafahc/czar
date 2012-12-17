@@ -1,17 +1,12 @@
 package br.com.naptec.agenda.teste;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import br.com.naptec.agenda.beans.Evento;
 import br.com.naptec.agenda.beans.Palestra;
-import br.com.naptec.agenda.beans.Palestrante;
-import br.com.naptec.agenda.services.EventoService;
 import br.com.naptec.agenda.services.PalestraService;
-import br.com.naptec.agenda.services.PalestranteService;
 
 public class Teste {
 	public static void main(String[] args) {
