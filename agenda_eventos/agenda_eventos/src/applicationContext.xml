@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<import resource="hibernate.xml"/>
+
+	<bean id="palestrante" class="br.com.naptec.agenda.beans.Palestrante"/>
+	<bean id="evento" class="br.com.naptec.agenda.beans.Evento"/>
+	<bean id="palestra" class="br.com.naptec.agenda.beans.Palestra"/>
+
+	<bean id="eventoDAO" class="br.com.naptec.agenda.dao.EventoDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+    	<property name="template" ref="hibernateTemplate"/>
+	</bean>
+	<bean id="palestranteDAO" class="br.com.naptec.agenda.dao.PalestranteDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+    	<property name="template" ref="hibernateTemplate"/>
+	</bean>
+	<bean id="palestraDao" class="br.com.naptec.agenda.dao.PalestraDAOImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+    	<property name="template" ref="hibernateTemplate"/>
+	</bean>
+	
+	<bean id="eventoService" class="br.com.naptec.agenda.services.EventoService">
+		<property name="eventoDAO" ref="eventoDAO"/>
+	</bean>
+	<bean id="palestranteService" class="br.com.naptec.agenda.services.PalestranteService">
+		<property name="palestranteDAO" ref="palestranteDAO"/>
+	</bean>
+	<bean id="palestraService" class="br.com.naptec.agenda.services.PalestraService">
+		<property name="palestraDao" ref="palestraDao"/>
+	</bean>
+ </beans>
